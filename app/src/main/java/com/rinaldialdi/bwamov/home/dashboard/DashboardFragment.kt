@@ -74,11 +74,11 @@ class DashboardFragment : Fragment() {
                 }
 
                 rv_nowplaying.adapter = NowPlayingAdapter(dataList){
-                    val intent = Intent(context, DetailActivity::class.java). putExtra("data", it)
+                    val intent = Intent(context, DetailActivity::class.java).putExtra("data", it)
                     startActivity(intent)
                 }
                 rv_comingsoon.adapter = ComingSoonAdapter(dataList){
-                    val intent = Intent(context, DetailActivity::class.java). putExtra("data", it)
+                    val intent = Intent(context, DetailActivity::class.java).putExtra("data", it)
                     startActivity(intent)
                 }
             }

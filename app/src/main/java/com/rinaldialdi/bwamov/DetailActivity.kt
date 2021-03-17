@@ -35,8 +35,8 @@ class DetailActivity : AppCompatActivity() {
 
         tv_judul.text = data.judul
         tv_genre.text = data.genre
-        tv_desc.text = data.desc
-        tv_rate.text = data.rating
+        tv_desc.text  = data.desc
+        tv_rate.text  = data.rating
 
         Glide.with(this)
                 .load(data.poster)
@@ -46,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
         getData()
 
         btn_pilih_bangku.setOnClickListener {
-            val intent = Intent(this@DetailActivity, PilihBangkuActivity::class.java).putExtra("data", data)
+            val intent = Intent(this@DetailActivity, PilihBangkuActivity::class.java).putExtra("film", data)
             startActivity(intent)
         }
 

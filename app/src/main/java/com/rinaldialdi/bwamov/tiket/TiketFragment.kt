@@ -51,7 +51,7 @@ class TiketFragment : Fragment() {
 
                 rv_tiket.adapter = ComingSoonAdapter(dataList){
 
-                    val intent = Intent(context, TiketActivity::class.java).putExtra("data", it)
+                    val intent = Intent(context, TiketActivity::class.java).putExtra("film", it)
                     startActivity(intent)
 
                 }
