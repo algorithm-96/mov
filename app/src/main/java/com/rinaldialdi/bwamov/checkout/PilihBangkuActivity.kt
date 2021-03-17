@@ -20,10 +20,9 @@ class PilihBangkuActivity : AppCompatActivity() {
         var statusA4: Boolean = false
         var total: Int = 0
 
-        var dataList = ArrayList<Checkout>()
+        val dataList = ArrayList<Checkout>()
 
-
-        val data = intent.getParcelableExtra<Film>("data")
+        val data = intent.extras?.getParcelable<Film>("film")
         tv_judul.text = data!!.judul
 
         a1.setOnClickListener {
@@ -61,8 +60,9 @@ class PilihBangkuActivity : AppCompatActivity() {
         }
 
         btn_lanjut.setOnClickListener {
-            val intent = Intent(this, CheckoutActivity::class.java).putExtra("data", dataList)
-                .putExtra("film", data)
+            val intent = Intent(this, CheckoutActivity::class.java)
+            intent.putExtra("data", dataList)
+            intent.putExtra("film", data)
             startActivity(intent)
         }
 
@@ -74,7 +74,7 @@ class PilihBangkuActivity : AppCompatActivity() {
             btn_lanjut.visibility = View.INVISIBLE
         } else {
 
-            btn_lanjut.setText("Beli Tiket("+total+")")
+            btn_lanjut.setText("Beli Tiket($total)")
             btn_lanjut.visibility =View.VISIBLE
         }
 

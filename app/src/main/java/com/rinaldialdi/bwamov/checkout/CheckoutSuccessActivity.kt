@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import com.rinaldialdi.bwamov.R
 import com.rinaldialdi.bwamov.home.HomeActivity
+import com.rinaldialdi.bwamov.model.Checkout
 import com.rinaldialdi.bwamov.model.Film
 import com.rinaldialdi.bwamov.model.Plays
 import com.rinaldialdi.bwamov.tiket.TiketActivity
@@ -16,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_checkout_success.*
 import kotlinx.android.synthetic.main.activity_tiket.*
 
 class CheckoutSuccessActivity : AppCompatActivity() {
+    private var dataList : ArrayList<Checkout>? = null
+    private var dataFilm : Film? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +34,10 @@ class CheckoutSuccessActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
         btn_tiket.setOnClickListener {
-            val goTiket = Intent(this, TiketActivity::class.java).putExtra("data", data)
+            val goTiket = Intent(this, TiketActivity::class.java)
+            goTiket.putExtra("data", dataList)
+            goTiket.putExtra("data", dataFilm)
             startActivity(goTiket)
         }
 

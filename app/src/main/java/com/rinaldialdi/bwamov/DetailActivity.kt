@@ -46,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
         getData()
 
         btn_pilih_bangku.setOnClickListener {
-            val intent = Intent(this@DetailActivity, PilihBangkuActivity::class.java).putExtra("data", data)
+            val intent = Intent(this@DetailActivity, PilihBangkuActivity::class.java).putExtra("film", data)
             startActivity(intent)
         }
 
@@ -59,8 +59,8 @@ class DetailActivity : AppCompatActivity() {
 
                 for (getdataSnapshot in dataSnapshot.children){
 
-                    val Film = getdataSnapshot.getValue(Plays::class.java)
-                    dataList.add(Film!!)
+                    val film = getdataSnapshot.getValue(Plays::class.java)
+                    dataList.add(film!!)
                 }
                 rv_list_plays.adapter = PlaysAdapter(dataList){
 

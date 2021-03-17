@@ -13,29 +13,29 @@ import kotlinx.android.synthetic.main.activity_tiket.*
 
 class TiketActivity : AppCompatActivity() {
 
-    private var dataList = ArrayList<Checkout>()
+    private var dataFilm : Film? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tiket)
 
-        val data = intent.getParcelableExtra<Film>("data")
+        dataFilm    = intent.extras?.getParcelable("film")
 
-        tv_title.text = data?.judul
-        tv_genre.text = data?.genre
-        tv_rate.text  = data?.rating
+        tv_title.text = dataFilm?.judul
+        tv_genre.text = dataFilm?.genre
+        tv_rate.text  = dataFilm?.rating
 
         Glide.with(this)
-            .load(data?.poster)
+            .load(dataFilm?.poster)
             .into(iv_poster)
-
+        val dataCheckout          = ArrayList<Checkout>()
         rv_checkout.layoutManager = LinearLayoutManager(this)
-        dataList.add(Checkout("C1",""))
-        dataList.add(Checkout("C2",""))
-        dataList.add(Checkout("C3",""))
-        dataList.add(Checkout("C4",""))
+        dataCheckout.add(Checkout("C1",""))
+        dataCheckout.add(Checkout("C2",""))
+        dataCheckout.add(Checkout("C3",""))
+        dataCheckout.add(Checkout("C4",""))
 
-        rv_checkout.adapter = TiketAdapter(dataList){
+        rv_checkout.adapter = TiketAdapter(dataCheckout){
 
         }
 

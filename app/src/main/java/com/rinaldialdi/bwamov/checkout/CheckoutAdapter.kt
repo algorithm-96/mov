@@ -31,15 +31,15 @@ class CheckoutAdapter(private var data : List<Checkout>,
 
             val localID = Locale("id", "ID")
             val formatRupiah = NumberFormat.getCurrencyInstance(localID)
-            tvHarga.setText(formatRupiah.format(data.harga!!.toDouble()))
+            tvHarga.text = formatRupiah.format(data.harga!!.toDouble())
 
             if (data.kursi!!.startsWith("Total")){
 
-                tvTitle.setText(data.kursi)
+                tvTitle.text = data.kursi
                 tvTitle.setCompoundDrawables(null, null, null, null)
 
             } else {
-                tvTitle.setText("Seat No. "+data.kursi)
+                tvTitle.text = "Seat No. "+data.kursi
             }
 
 
