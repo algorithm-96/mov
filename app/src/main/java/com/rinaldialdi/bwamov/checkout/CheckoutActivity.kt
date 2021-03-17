@@ -41,7 +41,7 @@ class CheckoutActivity : AppCompatActivity() {
         btn_bayar.setOnClickListener {
             val intent = Intent(this, CheckoutSuccessActivity::class.java)
             intent.putExtra("data", dataList)
-            intent.putExtra("data", dataFilm)
+            intent.putExtra("film", dataFilm)
             startActivity(intent)
         }
 

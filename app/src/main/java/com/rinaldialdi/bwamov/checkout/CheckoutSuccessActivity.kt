@@ -37,7 +37,7 @@ class CheckoutSuccessActivity : AppCompatActivity() {
         btn_tiket.setOnClickListener {
             val goTiket = Intent(this, TiketActivity::class.java)
             goTiket.putExtra("data", dataList)
-            goTiket.putExtra("data", dataFilm)
+            goTiket.putExtra("film", dataFilm)
             startActivity(goTiket)
         }
 
